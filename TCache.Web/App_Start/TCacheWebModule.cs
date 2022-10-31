@@ -31,7 +31,7 @@ namespace TCache.Web
 
             Configuration.Caching.Configure(CacheNames._roles, cache =>
             {
-                cache.DefaultAbsoluteExpireTime = DateTimeOffset.Now.AddMinutes(1);
+                cache.DefaultAbsoluteExpireTimeFactory = _ => DateTimeOffset.Now + TimeSpan.FromMinutes(1);
             });
 
             //Configure Hangfire - ENABLE TO USE HANGFIRE INSTEAD OF DEFAULT JOB MANAGER
